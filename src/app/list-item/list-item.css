@@ -1,0 +1,32 @@
+.item-box {
+  position:relative;
+}
+.item-status {
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  height:60px;
+  padding: 0 15px;
+  background: #e6e7e8;
+  border-bottom: 1px solid #d1d1d1;
+}
+.item-status span {
+  cursor:pointer;
+}
+.item-name {
+  position: absolute;
+  top: 0;
+  width: calc(100% - 90px);
+  height:60 px;
+  background: #fff;
+  padding: 0 15px;
+  text-align: right;
+  cursor: pointer;
+  border-bottom: 1px solid #d1d1d1;
+  box-shadow: 2px 0 1px rgba(0,0,0,.2);
+}
+.item-name.done {
+  right: 0;
+  text-align: right;
+  box-shadow: -2px 0 1px rgba(0,0,0,.2);
+}

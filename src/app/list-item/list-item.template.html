@@ -1,0 +1,9 @@
+<div class="item-box">
+    <div class="item-status">
+      <span (click)="toggleStaus(item.id)" class="icon icon-cart-empty"></span>
+      <span (click)="toggleStaus(item.id)" class="icon icon-home"></span>
+    </div>
+    <div class="item-name" (click)="toggleStaus(item.id)" [ngClass]="{'done': item.completed}">
+      <p class="item-text">{{item.title}}</p>
+    </div>
+</div>

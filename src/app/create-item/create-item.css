@@ -1,0 +1,9 @@
+.create-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.char-size {
+  text-align: right;
+  margin-top:5px;
+}

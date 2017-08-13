@@ -1,0 +1,32 @@
+.delete-item {
+  position: relative;
+  cursor: pointer;
+}
+.delete-item:before {
+  content: '';
+  width: 25px;
+  height: 25px;
+  background: #e74c3c;
+  display: inline-block;
+  border-radius: 10em;
+  text-align: center;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.4);
+  margin: 4px 15px 0;
+}
+.delete-item:after{
+  position: absolute;
+  top: 16px;
+  left: 22px;
+  content: '';
+  width: 10px;
+  height: 1px;
+  background: #fff;
+}
+.item-name {
+  display: flex;
+  align-items: center;
+  height:60 px;
+  background: #fff;
+  text-align: left;
+  border-bottom: 1px solid #d1d1d1;
+}

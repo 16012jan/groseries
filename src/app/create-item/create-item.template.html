@@ -1,0 +1,15 @@
+<div class="top-panel">
+  <a class="link-text" routerLink="">Cancel</a>
+  <header>
+    <h1 class="bold-text">Add new list item</h1>
+  </header>
+  <a class="link-text" (click)="submitForm(itemForm)">Done</a>
+</div>
+<div class="create-item">
+  <p class="bold-text">Add new list item</p>
+  <form #itemForm="ngForm" (submit)="submitForm(itemForm)">
+    <input class="new-item" [ngClass]="{'red': invalid && !itemForm.value.item }"
+    type="text" autofocus [(ngModel)]="item" name="item" required maxLength="27"/>
+    <p class="bold-text text-right char-size">Characters left {{itemForm.value.item ? maxCharacters - itemForm.value.item.length : maxCharacters}}</p>
+  </form>
+</div>

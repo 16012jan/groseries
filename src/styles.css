@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  margin:0;
+}
+
+.main-container {
+  position:relative;
+  margin: 0 auto;
+  height: 100vh;
+  min-width: 300px;
+  max-width: 500px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .4);
+}
+.items-container {
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+.top-panel {
+  height:50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  background: #f3f3f3;
+  border-bottom:  1px solid #b2b2b2;
+}
+
+input.new-item{
+  width: 280px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid #000;
+  caret-color: rgb(30,144,255);
+}
+.new-item.red {
+  border-bottom: 2px solid red;
+}
+.new-item:focus {
+  outline: none;
+}
+.center {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.bold-text, .link-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+.link-text {
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+.link-text:focus {
+  outline: none;
+}
+
+.item-text {
+  margin:0;
+  line-height:60px;
+  font-size: 24px;
+  text-align: left;
+}
+
+.footer {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  height:50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f3f3f3;
+  border-top: 1px solid #b2b2b2;
+}
+
+.icon:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.icon-edit:before {
+  width: 25px;
+  height: 25px;
+  background: url("assets/icons/edit_icon_active.png") no-repeat center;
+  background-size: contain;
+
+}
+.icon-plus:before {
+  width: 25px;
+  height: 25px;
+  background: url("assets/icons/plus.png") no-repeat center;
+  background-size: contain;
+
+}
+.icon-cart-empty:before {
+  background: url("assets/icons/cart_icon_inactive.png") no-repeat center;
+  background-size: contain;
+
+}
+.icon-home:before {
+  background: url("assets/icons/home_icon_46px.png") no-repeat center;
+  background-size: contain;
+
+}
+.icon-menu-inactive:before {
+  background: url("assets/icons/list_icon_inactive.png") no-repeat center;
+  background-size: contain;
+}
+.icon-menu-active:before {
+  background: url("assets/icons/list_icon_active.png") no-repeat center;
+  background-size: contain;
+}
+.icon-cart-full:before {
+  background: url("assets/icons/cart_icon_active.png") no-repeat center;
+  background-size: contain;
+}
+

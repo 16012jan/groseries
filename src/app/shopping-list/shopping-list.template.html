@@ -1,0 +1,21 @@
+<div class="top-panel">
+  <header>
+    <h1 class="bold-text">Groceries</h1>
+  </header>
+  <a class="icon icon-edit" routerLink="edit"></a>
+</div>
+<div class="items-container">
+  <p class="center bold-text" *ngIf="!items.length">There is now items</p>
+  <list-item *ngFor="let item of items"
+  (updateItem)="updateOne($event)" [item]="item"></list-item>
+</div>
+<div class="footer">
+  <span class="icon icon-menu"
+    [ngClass]="filtering ? 'icon-menu-active' : 'icon-menu-inactive'"
+    (click)="filterItems(false)">
+  </span>
+  <span class="icon"
+    [ngClass]="filtering ? 'icon-cart-empty' : 'icon-cart-full'"
+    (click)="filterItems(true)">
+  </span>
+</div>

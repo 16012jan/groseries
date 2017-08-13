@@ -1,0 +1,30 @@
+<div class="top-panel">
+  <a class="icon icon-plus" routerLink="/create">
+  </a>
+  <header>
+    <h1 class="bold-text">Groceries</h1>
+  </header>
+  <a class="link-text" routerLink="">Done</a>
+</div>
+<div class="items-container">
+  <div *ngFor="let item of items">
+    <div class="item-box">
+      <div class="item-status">
+      </div>
+      <div class="item-name">
+        <span class="delete-item" (click)="deleteItem(item.id)"></span>
+        <p class="item-text">{{ item.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <span class="icon icon-menu"
+    [ngClass]="filtering ? 'icon-menu-active' : 'icon-menu-inactive'"
+    (click)="filterItems(false)">
+  </span>
+  <span class="icon"
+    [ngClass]="filtering ? 'icon-cart-empty' : 'icon-cart-full'"
+    (click)="filterItems(true)">
+  </span>
+</div>

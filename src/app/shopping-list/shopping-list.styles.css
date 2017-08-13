@@ -1,0 +1,14 @@
+.top-panel { display:block; }
+
+.bold-text {
+  margin: 0;
+   text-align: center;
+   line-height: 50px;
+ }
+
+ .icon-edit {
+   position: absolute;
+   top: 10px;
+   right: 15px
+ }
+

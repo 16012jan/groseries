@@ -1,0 +1,10 @@
+<div class="footer">
+  <span class="icon icon-menu"
+    [ngClass]="filtering ? 'icon-menu-active' : 'icon-menu-inactive'"
+    (click)="filterItems(false)">
+  </span>
+  <span class="icon"
+    [ngClass]="filtering ? 'icon-cart-empty' : 'icon-cart-full'"
+    (click)="filterItems(true)">
+  </span>
+</div>

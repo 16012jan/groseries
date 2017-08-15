@@ -12,19 +12,11 @@
       <div class="item-status">
       </div>
       <div class="item-name">
-        <span class="delete-item" (click)="deleteItem(item.id)"></span>
+        <span class="delete-item" (swiperight)="deleteItem(item.id)" (click)="deleteItem(item.id)"></span>
         <p class="item-text">{{ item.title }}</p>
       </div>
     </div>
   </div>
 </div>
-<div class="footer">
-  <span class="icon icon-menu"
-    [ngClass]="filtering ? 'icon-menu-active' : 'icon-menu-inactive'"
-    (click)="filterItems(false)">
-  </span>
-  <span class="icon"
-    [ngClass]="filtering ? 'icon-cart-empty' : 'icon-cart-full'"
-    (click)="filterItems(true)">
-  </span>
-</div>
+<app-footer></app-footer>
+

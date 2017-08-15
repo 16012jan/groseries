@@ -12,4 +12,9 @@ export class ListItemComponent {
   toggleStaus(id){
     this.updateItem.emit(id);
   }
+  swipe(id, completed, action){
+    if( (completed && action==="swipeleft") || (!completed && action==="swiperight")){
+      this.toggleStaus(id)
+    }
+  }
 }

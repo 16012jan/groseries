@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import 'rxjs/add/operator/map';
 import { Item } from '../../models/item';
+import {Subject} from 'rxjs/Subject';
+import { Observable } from 'rxjs';
 
 @Injectable()
 
 export class ItemsService {
   items:Array<Item> = [];
+  filtering:boolean = false;
+  subject = new Subject();
 
   constructor(private http: Http){}
 
@@ -14,13 +18,13 @@ export class ItemsService {
     if(localStorage.getItem('items')){
       this.items = JSON.parse(localStorage.getItem('items'));
     }
-    return this.items;
+
+    return this.filterItems(this.filtering);
   }
 
   addItem(item){
-    let length = this.items.length + 1;
     let newItem:Item = {
-      id: length,
+      id: Date.now().toString(),
       title: item,
       completed: false
     }
@@ -46,6 +50,7 @@ export class ItemsService {
   }
 
   filterItems(value){
+    this.filtering = value;
     let items:Array<Item> = [];
     if(value === true){
       items = this.items.filter((item)=> {
@@ -59,4 +64,10 @@ export class ItemsService {
     return items
   }
 
+  setFiltering(){
+    this.subject.next(this.filterItems(this.filtering));
+  }
+  getFiltering():Observable<any>{
+    return this.subject.asObservable();
+  }
 }

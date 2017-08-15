@@ -20,7 +20,7 @@ export class CreateItemComponent {
       return
     }
     this.itemsService.addItem(form.value.item);
-    this.router.navigate(['/']);
+    this.router.navigate(['edit']);
   }
 }
 

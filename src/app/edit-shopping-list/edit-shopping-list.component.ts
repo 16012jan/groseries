@@ -13,11 +13,12 @@ export class EditShoppingListComponent{
   private subscription: ISubscription;
   private alive: boolean = true;
   items:Array<Item> = [];
-  filtering:boolean = false;
 
   constructor( private itemsService: ItemsService){}
 
   ngOnInit(){
+
+    this.getFiltering();
     this.items = this.itemsService.getItems();
   }
 
@@ -25,10 +26,10 @@ export class EditShoppingListComponent{
     this.items = this.itemsService.deleteItem(id);
   }
 
-  filterItems(value){
-    if(this.filtering === value) return;
-    this.filtering = value;
-    this.items = this.itemsService.filterItems(value);
+ getFiltering(){
+    this.itemsService.getFiltering().subscribe((res)=>{
+      this.items = res;
+    })
   }
 }
 

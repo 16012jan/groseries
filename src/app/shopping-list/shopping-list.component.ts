@@ -11,28 +11,23 @@ import { Item } from "../models/item";
 export class ShoppingListComponent implements OnInit {
   items:Array<Item> = [];
   filtering:boolean = false;
+  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
 
   constructor(private itemsService: ItemsService){}
 
   ngOnInit(){
+    this.getFiltering();
     this.items = this.itemsService.getItems();
   }
 
-  updateOne(id:number){
+  updateOne(id){
     this.itemsService.updateItem(id);
-    let item = this.items.find((item):any=>{
-      if(item.id === id){
-        return item
-      }
+    this.items = this.itemsService.getItems();
+  }
+
+  getFiltering(){
+    this.itemsService.getFiltering().subscribe((res)=>{
+      this.items = res;
     })
-    item.completed = !item.completed;
-    this.itemsService.updateItem(id);
   }
-
-  filterItems(value){
-    if(this.filtering === value) return;
-    this.filtering = value;
-    this.items = this.itemsService.filterItems(value);
-  }
-
 }

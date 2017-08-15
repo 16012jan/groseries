@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ItemsService } from "../services/items/items.service";
+import "rxjs/add/operator/takeWhile";
 import { Item } from "../models/item";
 
 
@@ -8,9 +9,10 @@ import { Item } from "../models/item";
   styleUrls: ["./shopping-list.styles.css"]
 })
 
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent implements OnInit, OnDestroy {
   items:Array<Item> = [];
   filtering:boolean = false;
+  alive:boolean = true;
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
 
   constructor(private itemsService: ItemsService){}
@@ -20,13 +22,19 @@ export class ShoppingListComponent implements OnInit {
     this.items = this.itemsService.getItems();
   }
 
+  ngOnDestroy(){
+    this.alive = false;
+  }
+
   updateOne(id){
     this.itemsService.updateItem(id);
     this.items = this.itemsService.getItems();
   }
 
   getFiltering(){
-    this.itemsService.getFiltering().subscribe((res)=>{
+    this.itemsService.getFiltering()
+    .takeWhile(()=> this.alive)
+    .subscribe((res)=>{
       this.items = res;
     })
   }

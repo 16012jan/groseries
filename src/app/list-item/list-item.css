@@ -10,9 +10,7 @@
   background: #e6e7e8;
   border-bottom: 1px solid #d1d1d1;
 }
-.item-status span {
-  cursor:pointer;
-}
+
 .item-name {
   position: absolute;
   top: 0;

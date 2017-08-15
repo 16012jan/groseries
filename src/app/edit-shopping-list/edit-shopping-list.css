@@ -28,5 +28,6 @@
   height:60 px;
   background: #fff;
   text-align: left;
+  cursor: pointer;
   border-bottom: 1px solid #d1d1d1;
 }
